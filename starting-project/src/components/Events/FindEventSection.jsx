@@ -10,7 +10,6 @@ export default function FindEventSection() {
   const [searchTerm, setSearchTerm] = useState(undefined);
 
   const { data, isLoading, isError, error } = useQuery({
-    // isLoading 은 쿼리가 비활성화 되었다고 해서 true가 되지 않음
     queryKey: ["events", { serach: searchTerm }],
     queryFn: ({ signal }) => fetchEvents({ signal, searchTerm }),
     enabled: searchTerm !== undefined, // false = 쿼리 비활성화
